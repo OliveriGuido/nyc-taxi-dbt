@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: stg_trips
+    description: "Trips limpios (silver), outliers filtrados."
+    columns:
+      - name: pickup_ts
+        data_tests:
+          - not_null
+      - name: dropoff_ts
+        data_tests:
+          - not_null
+      - name: fare_amount
+        data_tests:
+          - not_null

@@ -1,0 +1,8 @@
+snapshots:
+  - name: scd_zones
+    relation: ref('zones')
+    config:
+      unique_key: zip
+      strategy: check
+      check_cols:
+        - zone_name

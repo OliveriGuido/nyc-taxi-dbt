@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: nyctaxi
+    database: samples      # en Databricks "database" = catalog
+    schema: nyctaxi
+    tables:
+      - name: trips
