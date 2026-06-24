@@ -1,4 +1,5 @@
 # NYC Taxi — dbt Analytics Engineering Project
+![dbt CI](https://github.com/OliveriGuido/nyc-taxi-dbt/actions/workflows/ci.yml/badge.svg)
 
 A dbt project that transforms the public `samples.nyctaxi.trips` dataset on
 Databricks into clean, tested, business-ready models following a layered
@@ -79,10 +80,9 @@ Connection settings live in `~/.dbt/profiles.yml` (not committed).
 
 ---
 
-## Next steps
+## Production considerations
 
-- CI with **GitHub Actions** to run `dbt build` on every pull request.
-- Orchestrated daily runs (scheduler) for the incremental model.
+For a production deployment, the incremental model would run on a scheduler (e.g. dbt Cloud, Airflow, or Dagster) for daily orchestration.
 
 ---
 
