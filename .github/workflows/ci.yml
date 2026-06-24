@@ -1,1 +1,23 @@
-code .github\workflows\ci.yml
+name: dbt CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  dbt-build:
+    runs-on: ubuntu-latest
+    env:
+      DBT_HOST: ${{ secrets.DBT_HOST }}
+      DBT_HTTP_PATH: ${{ secrets.DBT_HTTP_PATH }}
+      DBT_TOKEN: ${{ secrets.DBT_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dbt
+        run: pip install dbt-databricks
+      - name: dbt build
+        run: dbt build --profiles-dir .
